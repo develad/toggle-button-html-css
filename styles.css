@@ -1,11 +1,48 @@
 :root {
   --on: #6948ed;
   --off: #555;
-  --toggle-width: 80px;
+  --toggle-width: 50px;
   --toggle-height: 30px;
+  --ball-size: 20px;
 }
 body {
   background: #333;
 }
 
 /* solution styles */
+
+.toggle input {
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  height: var(--toggle-height);
+  width: var(--toggle-width);
+  background-color: var(--on);
+  border-radius: 40px;
+  display: flex;
+  padding: 0 5px;
+  align-items: center;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  margin: 4rem auto;
+}
+
+.toggle input:checked + .switch {
+  transition: all 0.2s ease-in;
+  background-color: var(--off);
+}
+
+.circle {
+  height: var(--ball-size);
+  width: var(--ball-size);
+  border-radius: 50%;
+  background-color: white;
+  transition: all 0.2s ease-in;
+}
+
+input:checked + .switch .circle {
+  transform: translateX(calc(var(--toggle-width) - var(--ball-size)));
+  transition: all 0.2s ease-in;
+}
